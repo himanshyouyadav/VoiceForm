@@ -54,7 +54,7 @@
                             <div class="form-group">
                                 <label for="state">State :</label>
                                 <div class="form-select">
-                                    <select name="state" id="state">
+                                    <select name="country" id="country">
                                         <option value=""></option>
                                         <option value="in">India</option>
                                         <option value="us">America</option>
@@ -143,6 +143,16 @@
         'My city is *tag' : function(name)
         {
             document.getElementById("city").value = name;
+            console.log(name)
+        },
+        'My birth day is on *tag' : function(name)
+        {
+            document.getElementById("birth_date").value = name;
+            console.log(name)
+        },
+        'My email is *tag' : function(name)
+        {
+            document.getElementById("email").value = name;
             console.log(name)
         },
         'My country is *tag' : function(name)
