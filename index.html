@@ -18,7 +18,7 @@
         <div class="container">
             <div class="signup-content">
                 <div class="signup-img">
-                    <img src="images/signup-img.jpg" alt="">
+                    <img src="images/iiitNR.jpg" alt="">
                 </div>
                 <div class="signup-form">
                     <form method="POST" class="register-form" id="register-form">
@@ -26,16 +26,16 @@
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="name">Name :</label>
-                                <input type="text" name="name" id="name" placeholder="Say... My Name is <Your Name>" required/>
+                                <input type="text" name="name" id="name" placeholder="🔊 My Name is <Your Name>" required/>
                             </div>
                             <div class="form-group">
                                 <label for="father_name">Father Name :</label>
-                                <input type="text" name="father_name" id="father_name" required/>
+                                <input type="text" name="father_name" id="father_name" placeholder="🔊 My Father Name is <Name>" required/>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="address">Address :</label>
-                            <input type="text" name="address" id="address" required/>
+                            <input type="text" name="address" id="address" placeholder="🔊 My Address is <Your Address>" required/>
                         </div>
                         <div class="form-radio">
                             <label for="gender" class="radio-label">Gender :</label>
@@ -45,17 +45,20 @@
                                 <span class="check"></span>
                             </div>
                             <div class="form-radio-item">
-                                <input type="radio" name="gender" id="female" checked>
+                                <input type="radio" name="gender" id="female"  checked>
                                 <label for="female">Female</label>
                                 <span class="check"></span>
                             </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id = "gender" placeholder="🔊 I Am <Gender>" disabled>
                         </div>
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="state">State :</label>
                                 <div class="form-select">
-                                    <select name="country" id="country">
-                                        <option value=""></option>
+                                    <select name="country" id="country" placeholder="">
+                                        <option value="">🔊 My Country is &lt;Country&gt;</option>
                                         <option value="in">India</option>
                                         <option value="us">America</option>
                                         <option value="ot">Other</option>
@@ -65,23 +68,23 @@
                             </div>
                             <div class="form-group">
                                 <label for="city">City :</label>
-                                <input type="text" name="city" id="city">
+                                <input type="text" name="city" id="city" placeholder="🔊 My City is <City>">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="birth_date">DOB :</label>
-                            <input type="text" name="birth_date" id="birth_date">
+                            <input type="text" name="birth_date" id="birth_date" placeholder="🔊 My Birthdate is <DOB>">
                         </div>
                         <div class="form-group">
                             <label for="pincode">Pincode :</label>
-                            <input type="text" name="pincode" id="pincode">
+                            <input type="text" name="pincode" id="pincode" placeholder="🔊 My Pin is <Pincode>">
                         </div>
                         <div class="form-group">
                             <label for="course">Course :</label>
                             <div class="form-select">
                                 <select name="course" id="course">
-                                    <option value="" ></option>
-                                    <option value="cse" selected>CSE</option>
+                                    <option value="" selected>🔊 My Course is &lt;Course&gt;</option>
+                                    <option value="cse" >CSE</option>
                                     <option value="ece">ECE</option>
                                     <option value="dsai">DSAI</option>
                                 </select>
@@ -90,7 +93,7 @@
                         </div>
                         <div class="form-group">
                             <label for="email">Email ID :</label>
-                            <input type="email" name="email" id="email" />
+                            <input type="email" name="email" id="email" placeholder="🔊 My email is <Email>"/>
                         </div>
                         <div class="form-submit">
                             <input type="submit" value="Reset All" class="submit" name="reset" id="reset" />
@@ -111,56 +114,65 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
     
     <script>
-        var messages = ['🔊 Hey', '🔊 Hi, there!', '🔊 Hi!', '🔊 Hello'];
 
         if(annyang){
-        console.log("We have annyang!");
 
         var commands = {
-        'Hello' : hello,
-        'What is your name' : myname,
+
         'My name is *tag' : function(name)
         {
             document.getElementById("name").value = name;
-            console.log(name)
         },
 
-        'My fathers name is *tag' : function(name)
+        'My father name is *tag' : function(name)
         {
             document.getElementById("father_name").value = name;
-            console.log(name)
         },
         'My address is *tag' : function(name)
         {
             document.getElementById("address").value = name;
-            console.log(name)
         },
-        'My pincode is *tag' : function(name)
+        'My pin is *tag' : function(name)
         {
             document.getElementById("pincode").value = name;
-            console.log(name)
         },
         'My city is *tag' : function(name)
         {
             document.getElementById("city").value = name;
-            console.log(name)
         },
-        'My birth day is on *tag' : function(name)
+        'My birthdate is  *tag' : function(name)
         {
             document.getElementById("birth_date").value = name;
-            console.log(name)
+            
         },
         'My email is *tag' : function(name)
         {
             document.getElementById("email").value = name;
-            console.log(name)
+            
+        },
+        'submit form' : function()
+        {
+            document.getElementById("submit").click();
+        },
+        'I am *tag' : function(name)
+        {
+            if(name.toLowerCase() == "male")
+            {
+                document.getElementById("male").checked = true;
+                document.getElementById("gender").placeholder = "♀ I Am Male"
+               
+            }
+            else if(name.toLowerCase() == "female")
+            {
+                document.getElementById("female").checked = true;
+                document.getElementById("gender").placeholder = "♂ I Am Female"
+                
+            }
         },
         'My country is *tag' : function(name)
         {
             course = document.getElementById("country")
             cChild = course.children
-            console.log(cChild)
-            console.log(name)
             Object.entries(cChild).forEach(function(item)
             {
                 if(name.toLowerCase() == "india" && item[1].value == "in")
@@ -175,20 +187,33 @@
                 {
                     item[1].selected = true;
                 }
-            });
+            },);
+            
+        },
+        'My course is *tag' : function(name)
+        {
+            course = document.getElementById("course")
+            cChild = course.children
+            Object.entries(cChild).forEach(function(item)
+            {
+                if(name.toLowerCase().trim()[0] == "c" && item[1].value == "cse")
+                {
+                    item[1].selected = true;
+                }
+                if(name.toLowerCase().trim()[0] == "e" && item[1].value == "ece")
+                {
+                    item[1].selected = true;
+                }
+                if(name.toLowerCase().trim()[0] == "d" && item[1].value == "dsai")
+                {
+                    item[1].selected = true;
+                }
+            },);
             
         },
 
         }
 
-        function hello(){
-        var randomIndex = Math.round(Math.random() * messages.length);
-        console.log(`%c ${messages[randomIndex]}`,'color: green; font-weight:bold;');
-        }
-
-        function myname(){
-        console.log("My name is Billy!");
-        }
 
         // Add Commands
         annyang.addCommands(commands);
